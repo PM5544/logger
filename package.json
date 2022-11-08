@@ -1,0 +1,20 @@
+{
+  "name": "@adequaat/logger",
+  "version": "1.0.0",
+  "description": "Super simple append to local file logger",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adequaat/logger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adequaat/logger/issues"
+  },
+  "homepage": "https://github.com/adequaat/logger#readme"
+}

@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/adequaat/logger/issues"
   },
-  "homepage": "https://github.com/adequaat/logger#readme"
+  "homepage": "https://github.com/adequaat/logger#readme",
+  "devDependencies": {
+    "eslint": "^8.27.0"
+  }
 }

@@ -1,11 +1,36 @@
-import { appendFile, writeFile } from 'fs/promises';
-const LOGFILE_PATH = process.env.LOGFILE_PATH;
+import { appendFile } from "node:fs/promises";
+import { env } from "node:process";
 
-export default function logger(mssg) {
-  return appendFile(LOGFILE_PATH, `${new Date().toISOString()} -> ${mssg}\n`, 'utf8').catch(
-    (err) => {
-      // silently fail
-      console.error(err);
+const LOGFILE_PATH = env.LOGFILE_PATH;
+const LOG_LEVEL = env.LOG_LEVEL;
+const LEVELS = ["error", "log", "info", "debug"];
+const index = LEVELS.indexOf(LOG_LEVEL);
+const LEVEL = index === -1 ? 0 : index;
+
+export default function logger(first, second = false) {
+
+  if (!LOGFILE_PATH) {
+    return;
+  }
+
+  let message;
+
+  if (first && second) {
+    console.log(LEVELS.indexOf(first), LEVEL, LEVELS.indexOf(first) > LEVEL);
+    if (LEVELS.indexOf(first) > LEVEL) {
+      return;
     }
-  );
+    message = second;
+  } else if (first && !second) {
+    message = first;
+  }
+
+  return appendFile(
+    LOGFILE_PATH,
+    `${new Date().toISOString()} -> ${message}\n`,
+    "utf8"
+  ).catch((err) => {
+    // silently fail
+    console.error(err);
+  });
 }

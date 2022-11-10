@@ -10,15 +10,14 @@ const LEVEL = index === -1 ? 0 : index;
 export default function logger(first, second = false) {
 
   if (!LOGFILE_PATH) {
-    return;
+    return Promise.resolve();
   }
 
   let message;
 
   if (first && second) {
-    console.log(LEVELS.indexOf(first), LEVEL, LEVELS.indexOf(first) > LEVEL);
     if (LEVELS.indexOf(first) > LEVEL) {
-      return;
+      return Promise.resolve();
     }
     message = second;
   } else if (first && !second) {

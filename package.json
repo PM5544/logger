@@ -1,7 +1,7 @@
 {
-  "name": "@adequaat/logger",
-  "version": "2.0.0",
-  "description": "Super simple append to local file logger",
+  "name": "@arable/logger",
+  "version": "1.0.0",
+  "description": "Super simple logger which appends text to a local file",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adequaat/logger.git"
+    "url": "git+https://github.com/PM5544/logger.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/adequaat/logger/issues"
+    "url": "https://github.com/PM5544/logger/issues"
   },
-  "homepage": "https://github.com/adequaat/logger#readme",
+  "homepage": "https://github.com/PM5544/logger#readme",
   "devDependencies": {
-    "eslint": "^8.27.0"
+    "eslint": "^9.1.1"
   }
 }

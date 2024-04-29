@@ -7,21 +7,20 @@ const LEVELS = ["error", "log", "info", "debug"];
 const index = LEVELS.indexOf(LOG_LEVEL);
 const LEVEL = index === -1 ? 0 : index;
 
-export default function logger(first, second = false) {
-
+export default function logger(_messageOrLevel, _message = false) {
   if (!LOGFILE_PATH) {
     return Promise.resolve();
   }
 
   let message;
 
-  if (first && second) {
-    if (LEVELS.indexOf(first) > LEVEL) {
+  if (_messageOrLevel && _message) {
+    if (LEVELS.indexOf(_messageOrLevel) > LEVEL) {
       return Promise.resolve();
     }
-    message = second;
-  } else if (first && !second) {
-    message = first;
+    message = _message;
+  } else if (_messageOrLevel && !_message) {
+    message = _messageOrLevel;
   }
 
   return appendFile(
